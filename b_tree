@@ -132,7 +132,7 @@ void search(int val, int *pos, struct BTreeNode *myNode) {
   return;
 }
 
-// Traverse then nodes
+/*
 void traversal(struct BTreeNode *myNode, int blank) {
   int i;
   if (myNode) {
@@ -146,8 +146,19 @@ void traversal(struct BTreeNode *myNode, int blank) {
      for (i=0; i <= myNode->count; i++)
     traversal(myNode->link[i], blank+10);
   }
-}
+}*/
 
+
+void traversal(struct BTreeNode *myNode) {
+  int i;
+  if (myNode) {
+    for (i = 0; i < myNode->count; i++) {
+      traversal(myNode->link[i]);
+      printf("%d ", myNode->val[i + 1]);
+    }
+    traversal(myNode->link[i]);
+  }
+}
 
 int main() {
   int val, ch, n, i, key, choice;
@@ -161,7 +172,7 @@ int main() {
                 printf("2.Display\n");
                 printf("3.Quit\n");
 
-                printf("\nEnter your choice : ");
+                printf("\nEnter your choice : ");  
                 scanf("%d",&choice);
 
                 switch(choice)
@@ -178,7 +189,7 @@ int main() {
 
         case 2:
                         printf("\n");
-                        traversal(root,0);
+                        traversal(root); //TRAVERSAL(ROOT,0)
                         printf("\n");
                         break;
 
