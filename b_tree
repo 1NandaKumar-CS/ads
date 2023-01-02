@@ -43,14 +43,14 @@ int main() {
         printf("Creation of B tree for M=%d\n", M);
         while (1) {
                 printf("1.Insert\n");
-                printf("2.Delete\n");
-                printf("3.Search\n");
+               // printf("2.Delete\n");
+              //  printf("3.Search\n");
                 printf("4.Display\n");
                 printf("5.Quit\n");
-                printf("6.Enumerate\n");
-                printf("7.Total Keys\n");
-                printf("8.Min and Max Keys\n");
-                printf("9.Max Level\n");
+              //  printf("6.Enumerate\n");
+               // printf("7.Total Keys\n");
+              //  printf("8.Min and Max Keys\n");
+             //   printf("9.Max Level\n");
                 printf("Enter your choice : ");
                 scanf("%d", &choice); eatline();
 
@@ -60,7 +60,7 @@ int main() {
                         scanf("%d", &key); eatline();
                         insert(key);
                         break;
-                case 2:
+              /*  case 2:
                         printf("Enter the key : ");
                         scanf("%d", &key); eatline();
                         DelNode(key);
@@ -69,14 +69,14 @@ int main() {
                         printf("Enter the key : ");
                         scanf("%d", &key); eatline();
                         search(key);
-                        break;
+                        break;*/
                 case 4:
                         printf("Btree is :\n");
                         display(root, 0);
                         break;
                 case 5:
                         exit(1);
-                case 6:
+            /*    case 6:
                         printf("Btree in sorted order is:\n");
                         inorder(root); putchar('\n');
                         break;
@@ -90,7 +90,7 @@ int main() {
                 case 9:
                         printf("The maximum level in this tree is:\n");
                         printMaxLevel(root);
-                        break;
+                        break;*/
                 default:
                         printf("Wrong choice\n");
                         break;
@@ -218,23 +218,7 @@ int searchPos(int key, int *key_arr, int n) {
         return pos;
 }/*End of searchPos()*/
 
-void DelNode(int key) {
-        node *uproot;
-        KeyStatus value;
-        value = del(root, key);
-        switch (value) {
-        case SearchFailure:
-                printf("Key %d is not available\n", key);
-                break;
-        case LessKeys:
-                uproot = root;
-                root = root->p[0];
-                free(uproot);
-                break;
-        default:
-                return;
-        }/*End of switch*/
-}/*End of delnode()*/
+
 
 KeyStatus del(node *ptr, int key) {
         int pos, i, pivot, n, min;
