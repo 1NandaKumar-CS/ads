@@ -76,11 +76,11 @@ int main() {
                         break;
                 case 5:
                         exit(1);
-            /*    case 6:
+                case 6:
                         printf("Btree in sorted order is:\n");
                         inorder(root); putchar('\n');
                         break;
-                case 7:
+              /* case 7:
                         printf("The total number of keys in this tree is:\n");
                         printTotal(root);
                         break;
@@ -337,10 +337,10 @@ void inorder(node *ptr) {
         if (ptr) {
                 if (ptr->n >= 1) {
                         inorder(ptr->p[0]);
-                        printf("%d ", ptr->keys[0]);
+                        printf("%c ", ptr->keys[0]);
                         inorder(ptr->p[1]);
                         if (ptr->n == 2) {
-                                printf("%d ", ptr->keys[1]);
+                                printf("%c ", ptr->keys[1]);
                                 inorder(ptr->p[2]);
                         }
                 }
